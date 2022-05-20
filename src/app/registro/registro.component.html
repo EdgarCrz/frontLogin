@@ -1,0 +1,30 @@
+<div class="w-screen h-screen flex justify-center items-center bg-slate-500">
+
+  <div class="w-50% h-50% bg-white rounded-md flex justify-center">
+
+    <form [formGroup]="registroForm" class="flex flex-col justify-center items-center" action="">
+      <h2>Registro</h2>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" type="email" matInput placeholder="correo">
+
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Contraseña</mat-label>
+        <input formControlName="password" type="email" matInput placeholder="contraseña">
+
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" (click)="registro()" mat-button>Registrar usuario</button>
+      <br>
+      <a routerLink="login">Tengo una cuenta</a>
+    </form>
+
+
+  </div>
+
+
+
+</div>

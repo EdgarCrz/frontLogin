@@ -15,7 +15,7 @@ export class RegistroComponent implements OnInit {
   verContrasena: string = 'password';
 
   public registroForm = this.fb.group({
-    email: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required]
   })
   constructor(private fb: FormBuilder, private registroService: RegistroService, private router: Router) {

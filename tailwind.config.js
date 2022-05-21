@@ -37,6 +37,7 @@ module.exports = {
         'color4' : '#FF2E63', // rojo/rosado
         'color5' : '#212121',
         'colorRedes' : '#14FFEC',
+        '2BCORE': '#0075e2'
           
       },
       spacing: {

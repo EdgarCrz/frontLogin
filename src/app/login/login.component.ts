@@ -11,11 +11,13 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-
+  checked: boolean = false;
+  verContrasena: string = 'password';
 
   public credencialesForm = this.fb.group({
     email: ['', Validators.required],
-    password: ['', Validators.required]
+    password: ['', Validators.required],
+    recordar:[false]
   })
 
   constructor(private fb: FormBuilder, private loginService: LoginService, private router: Router) { }
@@ -23,6 +25,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  mostrarContrasena(value:boolean){
+    value === true ? this.verContrasena =  '' : this.verContrasena = 'password';
+  }
 
   entrar(){
     // console.log("bienvenido");
@@ -52,6 +57,11 @@ export class LoginComponent implements OnInit {
         setTimeout(() => {
           
           this.router.navigateByUrl('/inicio');
+          if (this.credencialesForm.get('recordar')?.value) {
+            localStorage.setItem('loginName', this.credencialesForm.get('email')?.value)
+          } else {
+            localStorage.removeItem('loginName');
+          }
         }, 1200);
       }
     }, (err) => {

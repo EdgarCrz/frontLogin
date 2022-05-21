@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Registro } from '../interfaces/registro.interface';
+import { tap } from 'rxjs';
 
 
 @Injectable({
@@ -16,7 +18,16 @@ export class RegistroService {
 
     const url = 'http://localhost:3000/api/registro'
     
-    return this.http.post<{ok:boolean, msg: string, email:string, password:string }>(url, value);
+    return this.http.post<Registro>(url, value).
+    pipe(
+      tap((resp) => {
+
+        localStorage.setItem('token', resp.token);
+
+
+      })
+    )
+
     
   }
 }

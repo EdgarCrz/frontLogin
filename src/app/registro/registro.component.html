@@ -1,12 +1,14 @@
 <div class="w-screen h-screen flex justify-center items-center bg-slate-500">
 
-  <div class="w-80% md:w-50% h-80vh md:h-50% bg-white rounded-md flex justify-center">
-
+  <div class="w-80% md:w-50% h-80vh md:h-50% bg-white rounded-md flex flex-col justify-evenly">
+    <div class="flex justify-center">
+      <img class="w-32" src="../../assets/LOGO-CORRECCION.svg" alt="">
+    </div>
     <form [formGroup]="registroForm" class="flex flex-col justify-center items-center" action="">
       <h2>Registro</h2>
 
       <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Email</mat-label>
+        <mat-label>Correo</mat-label>
         <input formControlName="email" type="email" matInput placeholder="correo">
 
       </mat-form-field>

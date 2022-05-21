@@ -16,7 +16,7 @@ export class FormLoginComponent implements OnInit {
 
   public registroForm = this.fb.group({
     email: ['', Validators.required],
-    password: ['', Validators.required]
+    password: ['', Validators.required],
   })
   constructor(private fb: FormBuilder, private registroService: RegistroService, private router: Router) {
 

@@ -1,23 +1,35 @@
 <div class="w-screen h-screen flex justify-center items-center bg-sky-400">
 
-  <div class="w-80% md:w-50% h-80vh md:h-50% bg-white rounded-md flex justify-center">
+  <div class="w-80% md:w-50% h-80vh md:h-50% bg-white rounded-md flex flex-col justify-evenly">
+    <div class="flex justify-center">
+      <img class="w-32" src="../../assets/LOGO-CORRECCION.svg" alt="">
+    </div>
     <form [formGroup]="credencialesForm" class="flex flex-col justify-center items-center" action="">
       <h2>Login</h2>
 
       <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Email</mat-label>
+        <mat-label>Correo</mat-label>
         <input formControlName="email" type="email" matInput placeholder="correo">
 
       </mat-form-field>
 
       <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Email</mat-label>
-        <input formControlName="password" type="email" matInput placeholder="contraseña">
+        <mat-label>Contraseña</mat-label>
+        <input formControlName="password" type="{{verContrasena}}" matInput placeholder="contraseña">
 
       </mat-form-field>
 
-      <button mat-raised-button color="primary" (click)="entrar()" mat-button>Iniciar sesión</button>
+      <mat-checkbox formControlName="recordar" class="example-margin">Recordar email</mat-checkbox>
+
+      <mat-checkbox (change)="mostrarContrasena(checked)" [(ngModel)]="checked" [ngModelOptions]="{standalone: true}">
+        ver contraseña
+      </mat-checkbox>
       <br>
+
+      <button class="bg- text-white animate-pulse hover:bg-naranja_ies hover:animate-none" [disabled]="credencialesForm.invalid" mat-raised-button color="primary" (click)="entrar()" mat-button>Iniciar sesión</button>
+      
+      <br>
+      <a routerLink="registro">Crear una cuenta</a>
     </form>
 
 

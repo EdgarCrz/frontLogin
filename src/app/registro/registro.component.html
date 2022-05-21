@@ -25,9 +25,9 @@
       <!-- <mat-checkbox class="example-margin" [(ngModel)]="checked">Checked</mat-checkbox> -->
       <br>
 
-      <button mat-raised-button color="primary" (click)="registro()" mat-button>Registrar usuario</button>
+      <button mat-raised-button class="bg-2BCORE-claro text-white animate-pulse hover:bg-2BCORE hover:animate-none" [disabled]="registroForm.invalid" (click)="registro()" mat-button>Registrar usuario</button>
       <br>
-      <a routerLink="login">Tengo una cuenta</a>
+      <a class="hover:text-2BCORE" routerLink="login">Tengo una cuenta</a>
     </form>
 
   </div>

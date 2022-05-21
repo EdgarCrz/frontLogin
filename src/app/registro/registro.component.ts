@@ -11,20 +11,26 @@ import { RegistroService } from '../services/registro.service';
 })
 export class RegistroComponent implements OnInit {
 
+  checked: boolean = false;
+  verContrasena: string = 'password';
+
   public registroForm = this.fb.group({
     email: ['', Validators.required],
     password: ['', Validators.required]
   })
-    constructor(private fb: FormBuilder, private registroService: RegistroService, private router: Router) { 
+  constructor(private fb: FormBuilder, private registroService: RegistroService, private router: Router) {
 
   }
 
   ngOnInit(): void {
     // this.registro();
   }
+  mostrarContrasena(value:boolean){
+    value === true ? this.verContrasena =  '' : this.verContrasena = 'password';
+  }
 
 
-  registro(){
+  registro() {
 
 
     if (this.registroForm.invalid) {
@@ -38,11 +44,11 @@ export class RegistroComponent implements OnInit {
 
 
       this.registroService.registro(this.registroForm.value).subscribe((resp) => {
-        
+
         const { msg, email, password, ok } = resp;
         console.log(resp);
-        
-  
+
+
         // TODO: VERIFICAR FUNCIONAMIENDO
         // TODO: AGREGAR ERROR DE USUARIO NO ENCONTRADO
         if (ok == true) {
@@ -53,32 +59,32 @@ export class RegistroComponent implements OnInit {
             showCancelButton: false,
             showConfirmButton: false
           });
-          
+
           setTimeout(() => {
-            
+
             this.router.navigateByUrl('/login');
           }, 1200);
         }
       }, (err) => {
         Swal.fire({
-            title: 'Error',
-            text: err.error.msg,
-            icon: 'warning',
-            timer: 1200,
-            showCancelButton: false,
-            showConfirmButton: false
+          title: 'Error',
+          text: err.error.msg,
+          icon: 'warning',
+          timer: 1200,
+          showCancelButton: false,
+          showConfirmButton: false
         });
         console.log(err.error.msg);
-  
+
       })
 
     }
-    
+
 
     // this.router.navigateByUrl('/');
-    
-    
-    
+
+
+
   }
 
 }

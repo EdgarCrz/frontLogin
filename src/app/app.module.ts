@@ -1,16 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-
-
-
-
-
-
-
-
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,6 +16,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { RegistroComponent } from './registro/registro.component';
 import { LoginComponent } from './login/login.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { FormLoginComponent } from './components/form-login/form-login.component';
 
 
 @NgModule({
@@ -34,7 +24,8 @@ import { InicioComponent } from './inicio/inicio.component';
     AppComponent,
     RegistroComponent,
     LoginComponent,
-    InicioComponent
+    InicioComponent,
+    FormLoginComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 <div class="w-screen h-screen flex justify-center items-center bg-slate-500">
 
-  <div class="w-50% h-50% bg-white rounded-md flex justify-center">
+  <div class="w-80% md:w-50% h-80vh md:h-50% bg-white rounded-md flex justify-center">
 
     <form [formGroup]="registroForm" class="flex flex-col justify-center items-center" action="">
       <h2>Registro</h2>
@@ -13,9 +13,15 @@
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Contraseña</mat-label>
-        <input formControlName="password" type="email" matInput placeholder="contraseña">
+        <input formControlName="password" type="{{verContrasena}}" matInput placeholder="contaseña" matInput
+          placeholder="contraseña">
 
       </mat-form-field>
+      <mat-checkbox (change)="mostrarContrasena(checked)" [(ngModel)]="checked" [ngModelOptions]="{standalone: true}">
+        ver contraseña
+      </mat-checkbox>
+      <!-- <mat-checkbox class="example-margin" [(ngModel)]="checked">Checked</mat-checkbox> -->
+      <br>
 
       <button mat-raised-button color="primary" (click)="registro()" mat-button>Registrar usuario</button>
       <br>

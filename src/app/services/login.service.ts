@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable, catchError, of, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
+const base_url = environment.base_url;
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +21,8 @@ export class LoginService {
 
     // console.log(value);
 
-    const url = 'http://localhost:3000/api/inicio'
+    // const url = 'http://localhost:3000/api/inicio'
+    const url = `${base_url}/inicio`;
     
     return this.http.post<{ok:boolean, msg: string, token:string }>(url, value).
     pipe(
@@ -36,7 +40,9 @@ export class LoginService {
 
   validarToken():Observable<boolean>{
 
-    const url = 'http://localhost:3000/api/inicio'
+    // const url = 'http://localhost:3000/api/inicio'
+    const url = `${base_url}/inicio`;
+
     
     return this.http.get<{ok:boolean, msg: string }>(url,{headers:{'x-token': this.token}}).
     pipe(

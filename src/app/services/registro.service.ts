@@ -2,7 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Registro } from '../interfaces/registro.interface';
 import { tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
+
+const base_url = environment.base_url;
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +19,7 @@ export class RegistroService {
 
     // console.log(value);
 
-    const url = 'http://localhost:3000/api/registro'
+    const url = `${base_url}/registro`
     
     return this.http.post<Registro>(url, value).
     pipe(
